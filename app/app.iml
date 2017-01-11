@@ -124,5 +124,6 @@
     <orderEntry type="library" exported="" name="play-services-ads-lite-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-ads-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-iid-10.0.1" level="project" />
+    <orderEntry type="module" module-name="javaJokes" exported="" />
   </component>
 </module>
