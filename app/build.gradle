@@ -28,5 +28,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:9.4.0'
     compile 'com.google.firebase:firebase-ads:10.0.1'
     compile project(':javaJokes')
+    compile project(':androidJokes')
 
 }
