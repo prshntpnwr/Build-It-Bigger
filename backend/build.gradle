@@ -31,10 +31,10 @@ dependencies {
 
 appengine {
   downloadSdk = true
-    httpAddress = "0.0.0.0"
   appcfg {
     oauth2 = true
   }
+    httpAddress = "0.0.0.0"
   endpoints {
     getClientLibsOnBuild = true
     getDiscoveryDocsOnBuild = true
