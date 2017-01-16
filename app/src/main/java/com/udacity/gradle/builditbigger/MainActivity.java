@@ -13,8 +13,6 @@ import com.example.prashant.myapplication.backend.myApi.MyApi;
 import com.example.prashant.mylibrary.JokeActivity;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
-import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
-import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
 
@@ -49,8 +47,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view) {
-        //Joker myJoker = new Joker();
-        //Toast.makeText(this, myJoker.getJoke(), Toast.LENGTH_LONG).show();
         new EndpointsAsyncTask().execute(this);
     }
 
@@ -61,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
         @Override
         protected String doInBackground(Context... params) {
             if(myApiService == null) {  // Only do this once
-                MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
+               /* MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                         new AndroidJsonFactory(), null)
                         // options for running against local devappserver
                         // - 10.0.2.2 is localhost's IP address in Android emulator
@@ -72,8 +68,12 @@ public class MainActivity extends ActionBarActivity {
                             public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
                                 abstractGoogleClientRequest.setDisableGZipContent(true);
                             }
-                        });
+                        });*/
                 // end options for devappserver
+
+                MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
+                        new AndroidJsonFactory(), null)
+                        .setRootUrl("https://build-it-bigger-155422.appspot.com/_ah/api/");
 
                 myApiService = builder.build();
             }
