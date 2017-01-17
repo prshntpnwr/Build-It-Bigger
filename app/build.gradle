@@ -27,8 +27,16 @@ dependencies {
     compile project(':javaJokes')
     compile project(':androidJokes')
 
-    compile 'com.android.support:appcompat-v7:24.1.0'
+    compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.google.android.gms:play-services-ads:10.0.1'
     compile 'com.google.firebase:firebase-ads:10.0.1'
     compile project(path: ':backend', configuration: 'android-endpoints')
+
+    // Required for local unit tests (JUnit 4 framework)
+    testCompile 'junit:junit:4.12'
+
+    // Required for instrumented tests
+    //androidTestCompile 'com.android.support:support-annotations:24.1.0'
+    //androidTestCompile 'com.android.support.test:runner:0.5'
+
 }
