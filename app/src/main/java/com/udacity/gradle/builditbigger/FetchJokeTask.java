@@ -1,13 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
-
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.LauncherApps;
 import android.os.AsyncTask;
-
 import com.example.prashant.myapplication.backend.myApi.MyApi;
-import com.example.prashant.mylibrary.JokeActivity;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 
@@ -15,7 +9,6 @@ import java.io.IOException;
 
 class FetchJokeTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
-    private Context context;
 
     private Callback callback;
 
