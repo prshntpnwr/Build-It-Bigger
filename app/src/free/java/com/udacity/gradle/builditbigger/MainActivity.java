@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
+
 import com.example.prashant.mylibrary.JokeActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -14,11 +16,13 @@ import com.google.android.gms.ads.InterstitialAd;
 public class MainActivity extends ActionBarActivity implements FetchJokeTask.Callback {
 
     InterstitialAd mInterstitialAd;
+    private ProgressBar spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
 
@@ -30,6 +34,9 @@ public class MainActivity extends ActionBarActivity implements FetchJokeTask.Cal
             }
         });
         requestNewInterstitial();
+
+        spinner = (ProgressBar)findViewById(R.id.progressBar);
+        spinner.setVisibility(View.GONE);
     }
 
     private void requestNewInterstitial() {
@@ -71,11 +78,13 @@ public class MainActivity extends ActionBarActivity implements FetchJokeTask.Cal
     }
 
     public void getJokeTask() {
+        spinner.setVisibility(View.VISIBLE);
         new FetchJokeTask(this).execute();
     }
 
     @Override
     public void onFinished(String result) {
+        spinner.setVisibility(View.GONE);
         Intent intent = new Intent(this, JokeActivity.class);
         intent.putExtra(JokeActivity.JOKE_KEY, result);
         startActivity(intent);
