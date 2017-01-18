@@ -40,7 +40,6 @@ public class MainActivity extends ActionBarActivity implements FetchJokeTask.Cal
 
     public void tellJoke(View view){
         new FetchJokeTask(this).execute();
-
     }
 
     @Override
