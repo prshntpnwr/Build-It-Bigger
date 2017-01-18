@@ -15,8 +15,18 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        shrunk {
+            minifyEnabled true
+            shrinkResources true
+        }
+
+        big {
+            minifyEnabled false
+            shrinkResources false
         }
     }
     productFlavors {
@@ -41,5 +51,5 @@ dependencies {
     compile project(path: ':backend', configuration: 'android-endpoints')
     // Required for local unit tests (JUnit 4 framework)
     testCompile 'junit:junit:4.12'
-    
+
 }
