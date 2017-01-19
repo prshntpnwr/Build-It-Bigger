@@ -33,6 +33,7 @@ android {
         free {
             applicationId "com.udacity.gradle.builditbigger.free"
         }
+
         paid {
             applicationId "com.udacity.gradle.builditbigger.paid"
         }
@@ -47,6 +48,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.google.android.gms:play-services-ads:9.6.1'
     freeCompile 'com.google.android.gms:play-services:9.6.1'
+    freeCompile 'com.google.android.gms:play-services-ads:7.8.0'
     freeCompile 'com.google.firebase:firebase-ads:9.6.1'
     compile project(path: ':backend', configuration: 'android-endpoints')
     // Required for local unit tests (JUnit 4 framework)
